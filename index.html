@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let Us Calculate</title>
+    <script src="calculator.js"></script>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+    <div class="container">
+        <div><input type="text" name="displayResult" id="displayResult" class="displayResult" value="0"></div>
+
+        <div class="buttonContainer">
+            <!-- Row 1 -->
+            <button class="keys" onclick="insertValue('9')">9</button>
+            <button class="keys" onclick="insertValue('8')">8</button>
+            <button class="keys" onclick="insertValue('7')">7</button>
+            <button class="keysop" onclick="insertValue('+')">+</button>
+            <br>
+            <!-- Row 2 -->
+            <button class="keys" onclick="insertValue('6')">6</button>
+            <button class="keys" onclick="insertValue('5')">5</button>
+            <button class="keys" onclick="insertValue('4')">4</button>
+            <button class="keysop" onclick="insertValue('-')">-</button>
+            <br>
+            <!-- Row 3 -->
+            <button class="keys" onclick="insertValue('3')">3</button>
+            <button class="keys" onclick="insertValue('2')">2</button>
+            <button class="keys" onclick="insertValue('1')">1</button>
+            <button class="keysop" onclick="insertValue('*')">*</button>
+            <br>
+            <!-- Row 4 -->
+            <button class="keys" onclick="insertValue('.')">.</button>
+            <button class="keys" onclick="insertValue('0')">0</button>
+            <button class="keys" onclick="backspace()"><</button> 
+            <button class="keysop" onclick="insertValue('/')">/</button>
+            <br>
+            <!-- Row 5 -->
+            <button class="keysop" onclick="insertValue('(')">(</button>
+            <button class="keysop" onclick="insertValue(')')">)</button>
+            <button class="keysop" onclick="insertValue('%')">%</button>
+            <button class="keysop" onclick="allClear()">AC</button>
+            <br>
+            <!-- Row 6 -->
+            <button class="calcu" onclick="calculate()">Calculate</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

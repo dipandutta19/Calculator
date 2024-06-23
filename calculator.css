@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    height: 430px;
+    padding: 40px 20px;
+    width: 300px;
+    justify-content: center;
+    border-radius: 20px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 100px rgba(0, 0, 0, .5);
+}
+
+.keys {
+    height: 50px;
+    width: 24%;
+    padding: 10px 10px;
+    background-color: rgb(63, 63, 63);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    cursor: pointer;
+}
+
+.keysop {
+    height: 50px;
+    width: 24%;
+    padding: 10px 10px;
+    background-color: rgb(153, 153, 153);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    cursor: pointer;
+}
+
+.keysop:disabled,
+.keys:disabled {
+    opacity: .5;
+}
+
+.keysop:focus,
+.keys:focus {
+    outline: 0;
+}
+
+.keysop:hover,
+.keys:hover {
+    background-color: #0A46E4;
+    border-color: #0A46E4;
+}
+
+.keysop:active,
+.keys:active {
+    background-color: #0039D7;
+    border-color: #0039D7;
+}
+
+.calcu {
+    height: 50px;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #1652F0;
+    border: 1px solid #1652F0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.1%;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+.calcu:disabled {
+    opacity: .5;
+}
+
+.calcu:focus {
+    outline: 0;
+}
+
+.calcu:hover {
+    background-color: #0A46E4;
+    border-color: #0A46E4;
+}
+
+.calcu:active {
+    background-color: #0039D7;
+    border-color: #0039D7;
+}
+
+input[type="text"] {
+    height: 65px;
+    width: 92%;
+    background-color: whitesmoke;
+    padding: 15px 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-bottom: 2%;
+    text-align: right;
+}

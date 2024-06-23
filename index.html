@@ -5,8 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let Us Calculate</title>
-    <script src="calculator.js"></script>
-    <link rel="stylesheet" href="calculator.css">
+    <style>
+        body {
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    height: 430px;
+    padding: 40px 20px;
+    width: 300px;
+    justify-content: center;
+    border-radius: 20px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 100px rgba(0, 0, 0, .5);
+}
+
+.keys {
+    height: 50px;
+    width: 24%;
+    padding: 10px 10px;
+    background-color: rgb(63, 63, 63);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    cursor: pointer;
+}
+
+.keysop {
+    height: 50px;
+    width: 24%;
+    padding: 10px 10px;
+    background-color: rgb(153, 153, 153);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    cursor: pointer;
+}
+
+.keysop:disabled,
+.keys:disabled {
+    opacity: .5;
+}
+
+.keysop:focus,
+.keys:focus {
+    outline: 0;
+}
+
+.keysop:hover,
+.keys:hover {
+    background-color: #0A46E4;
+    border-color: #0A46E4;
+}
+
+.keysop:active,
+.keys:active {
+    background-color: #0039D7;
+    border-color: #0039D7;
+}
+
+.calcu {
+    height: 50px;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #1652F0;
+    border: 1px solid #1652F0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.1%;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+.calcu:disabled {
+    opacity: .5;
+}
+
+.calcu:focus {
+    outline: 0;
+}
+
+.calcu:hover {
+    background-color: #0A46E4;
+    border-color: #0A46E4;
+}
+
+.calcu:active {
+    background-color: #0039D7;
+    border-color: #0039D7;
+}
+
+input[type="text"] {
+    height: 65px;
+    width: 92%;
+    background-color: whitesmoke;
+    padding: 15px 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-bottom: 2%;
+    text-align: right;
+}
+    </style>
 </head>
 
 <body>
@@ -50,5 +171,102 @@
     </div>
 
 </body>
+<script>
+function insertValue(content){
+var OriginalContent = document.getElementById ('displayResult').value;
+var lastCharacter = OriginalContent.slice(OriginalContent.length-1,OriginalContent.length)
+/* slice(OriginalContent.length-1,OriginalContent.length) means only the last character */
+if(OriginalContent=='Error'){
+    document.getElementById('displayResult').value = '0';
+}
 
+/* Test Case 1: If the value is Zero. then 0will be replaced by New Content*/
+if(document.getElementById ('displayResult').value== '0' && content=='.'){
+    document.getElementById('displayResult').value += content;
+}
+else if(document.getElementById ('displayResult').value== '0'){
+    document.getElementById('displayResult').value = content;
+}
+/* Test Case 2: If we add same operator multiple times then it will not be updated */
+else if(lastCharacter=='+' && content=='+'){
+    document.getElementById('displayResult').value += '';
+}
+else if(lastCharacter=='-' && content=='-'){
+    document.getElementById('displayResult').value += '';
+}
+else if(lastCharacter=='*' && content=='*'){
+    document.getElementById('displayResult').value += '';
+}
+else if(lastCharacter=='/' && content=='/'){
+    document.getElementById('displayResult').value += '';
+}
+else if(lastCharacter=='%' && content=='%'){
+    document.getElementById('displayResult').value += '';
+}
+else if(lastCharacter=='.' && content=='.'){
+    document.getElementById('displayResult').value += '';
+}
+    /*
+        Example:
+        748+- => 748-
+        1. RemoveLast Character        (+)
+        2. Add New Character (Content) (-)
+    */
+else if(lastCharacter=='+' && (content=='-' ||content=='*' ||content=='/' ||content=='%')){
+        // Replace Last Character by Content
+    OriginalContent = OriginalContent.slice(0,OriginalContent.length-1) + content;
+    document.getElementById('displayResult').value = OriginalContent;
+}
+else if(lastCharacter=='-' && (content=='+' ||content=='*' ||content=='/' ||content=='%')){
+        // Replace Last Character by Content
+    OriginalContent = OriginalContent.slice(0,OriginalContent.length-1) + content;
+    document.getElementById('displayResult').value = OriginalContent;
+}
+else if(lastCharacter=='*' && (content=='+' ||content=='-' ||content=='/' ||content=='%')){
+        // Replace Last Character by Content
+    OriginalContent = OriginalContent.slice(0,OriginalContent.length-1) + content;
+    document.getElementById('displayResult').value = OriginalContent;
+}
+else if(lastCharacter=='/' && (content=='+' ||content=='-' ||content=='*' ||content=='%')){
+        // Replace Last Character by Content
+    OriginalContent = OriginalContent.slice(0,OriginalContent.length-1) + content;
+    document.getElementById('displayResult').value = OriginalContent;
+}
+else if(lastCharacter=='%' && (content=='+' ||content=='-' ||content=='*' ||content=='/')){
+        // Replace Last Character by Content
+    OriginalContent = OriginalContent.slice(0,OriginalContent.length-1) + content;
+    document.getElementById('displayResult').value = OriginalContent;
+}
+else{
+    document.getElementById('displayResult').value += content;
+}
+
+}
+
+function backspace(){
+    /* Pick the Original Content */
+    var OriginalContent = document.getElementById ('displayResult').value;
+    /* Remove Last Character */
+    OriginalContent = OriginalContent.slice(0,OriginalContent.length-1);
+    /* Place at Original Position */
+    document.getElementById('displayResult').value = OriginalContent;
+    if(document.getElementById('displayResult').value.length==0){
+        document.getElementById('displayResult').value=0;
+    }
+}
+
+function allClear(){
+    document.getElementById('displayResult').value = '0';
+}
+
+function calculate(){
+    /* Pick the Original Content */
+    var OriginalContent = document.getElementById ('displayResult').value;
+    try{
+        document.getElementById('displayResult').value = eval(OriginalContent);
+    } catch (error){
+        document.getElementById('displayResult').value = 'Error';
+    }
+}
+    </script>
 </html>
